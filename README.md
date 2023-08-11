@@ -8,9 +8,9 @@
 | GET            | /libros          | Todos los libros           |
 | GET            | /libros/:id       | Libro por ID               |
 | GET            | /libros/populate/:id | Libro por ID y autor    |
-| POST           | /libro           | Crear libro*             |
-| PUT            | /libro/:id       | Actualizar libro por ID*    |
-| DELETE         | /libro/:id       | Borrar libro por ID*   |
+| POST           | /libro           | Crear libro(*)             |
+| PUT            | /libro/:id       | Actualizar libro por ID(*)    |
+| DELETE         | /libro/:id       | Borrar libro por ID(*)   |
 
 # Autores
 | Solicitud HTTP | Endpoint         | Descripción                 |
@@ -18,17 +18,17 @@
 | GET            | /autores          | Todos los autores           |
 | GET            | /autores/:id       | Autor por ID               |
 | GET            | /autores/populate/:id | Autor por ID con libros escritos |
-| POST           | /autores           | Crear autor*                |
-| PUT            | /autores/:id       | Actualizar autor por ID*   |
-| PUT            | /autores/:idAutor/:idLibro       | Añadir o eliminar libro escrito por un autor*    |
-| DELETE         | /autores/:id       | Borrar autor por ID*        |
+| POST           | /autores           | Crear autor(*)                |
+| PUT            | /autores/:id       | Actualizar autor por ID(*)   |
+| PUT            | /autores/:idAutor/:idLibro       | Añadir o eliminar libro escrito por un autor(*)    |
+| DELETE         | /autores/:id       | Borrar autor por ID(*)        |
 
 # Usuarios
 | Solicitud HTTP | Endpoint         | Descripción                 |
 | -------------- | ---------------- | --------------------------- |
-| GET            | /users          | Todos los usuarios*          |
-| GET            | /users/:id       | Usuario por ID*           |
-| DELETE         | /users/:id       | Borrar usuario por ID*        |
+| GET            | /users          | Todos los usuarios(*)          |
+| GET            | /users/:id       | Usuario por ID(*)           |
+| DELETE         | /users/:id       | Borrar usuario por ID(*)        |
 
 # Autenticación
 | Solicitud HTTP | Endpoint         | Descripción                 |
@@ -37,7 +37,7 @@
 | POST            | /auth/login          | Iniciar sesión          |
 
 
-*: Es necesaria autenticación mediante un token válido en el campo 'Authorization/Auth' - 'Bearer'.
+(*): Es necesaria autenticación mediante un token válido en el campo 'Authorization/Auth' - 'Bearer'.
 
 Para obtener un token válido, registra un usuario con 'email' y 'password' donde la contraseña tenga al menos 6 caracteres y mínimo una mayúscula y una minúscula. Los tokens válidos se muestran en la respuesta a la solicitud al iniciar sesión.
 
