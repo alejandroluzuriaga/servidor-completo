@@ -1,0 +1,23 @@
+{
+  "name": "api_rest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "populate": "node src/config/populateDB.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.9.0",
+    "mongoose": "^7.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
