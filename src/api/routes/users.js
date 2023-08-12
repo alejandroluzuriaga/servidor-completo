@@ -4,7 +4,7 @@ const { crearUser, getTodosLosUsers, getUserPorID, eliminarUser } = require('../
 
 const router = express.Router()
 
-router.get('/', hasValidAuthJWT, getTodosLosUsers)
+router.get('/', getTodosLosUsers)
 router.get('/:id', hasValidAuthJWT, getUserPorID)
 router.delete('/:id', hasValidAuthJWT, eliminarUser)
 

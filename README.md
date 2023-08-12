@@ -26,7 +26,7 @@
 # Usuarios
 | Solicitud HTTP | Endpoint         | Descripción                 |
 | -------------- | ---------------- | --------------------------- |
-| GET            | /users          | Todos los usuarios(*)          |
+| GET            | /users          | Todos los usuarios         |
 | GET            | /users/:id       | Usuario por ID(*)           |
 | DELETE         | /users/:id       | Borrar usuario por ID(*)        |
 
@@ -35,11 +35,14 @@
 | -------------- | ---------------- | --------------------------- |
 | POST            | /auth/register          | Registrar un usuario (email y contraseña)          |
 | POST            | /auth/login          | Iniciar sesión          |
+| POST            | /auth/avatar          | Actualizar usuario con avatar(*)         |
 
 
 (*): Es necesaria autenticación mediante un token válido en el campo 'Authorization/Auth' - 'Bearer'.
 
 Para obtener un token válido, registra un usuario con 'email' y 'password' donde la contraseña tenga al menos 6 caracteres y mínimo una mayúscula y una minúscula. Los tokens válidos se muestran en la respuesta a la solicitud al iniciar sesión.
+
+En el caso de 'Actualizar usuario con avatar' el usuario que se actualizará con un nuevo campo 'avatar' (URL de la imagen en Cloudinary) será el que haya generado el token válido necesario para consumir el endpoint.
 
 --- 
 

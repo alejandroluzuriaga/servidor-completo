@@ -1,4 +1,3 @@
-const SECRET_TOKEN = 'Clavinova99?!'
 const { verifyToken } = require('../../config/jwt');
 
 const hasValidAuthJWT = (req, res, next) =>{

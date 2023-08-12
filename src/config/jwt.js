@@ -1,13 +1,12 @@
 var jwt = require("jsonwebtoken")
-const SECRET_TOKEN = 'Clavinova99?!'
 
 const signToken = (payload) =>{
-    const token = jwt.sign(payload, SECRET_TOKEN, { expiresIn: '1h' })
+    const token = jwt.sign(payload, process.env.JWT_TOKEN_SECRET, { expiresIn: '1h' })
     return token
 }
 
 const verifyToken = (token) =>{
-    const payload = jwt.verify(token, SECRET_TOKEN)
+    const payload = jwt.verify(token, process.env.JWT_TOKEN_SECRET)
     return payload
 }
 

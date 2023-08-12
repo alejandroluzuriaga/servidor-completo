@@ -4,7 +4,7 @@ mongoose.set("strict", false);
 mongoose.set("strictQuery", false);
 mongoose.set("strictPopulate", false);
 
-mongoose.connect('mongodb://127.0.0.1:27017/proyecto-9')
+mongoose.connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Conectado a la base de datos!");
   })

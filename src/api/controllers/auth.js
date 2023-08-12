@@ -1,10 +1,13 @@
-const { hashPassword, verifyPassword } = require("../../config/password.js");
-const { crearUser, getUserPorEmail } = require("./users.js");
+const { hashPassword, verifyPassword, passwordRequirementsOK } = require("../../config/password.js");
+const { crearUser, getUserPorEmail, updateAvatar } = require("./users.js");
 const { signToken } = require("../../config/jwt.js");
 
 const registrarUsuario = async (req, res) => {
     try {
       const { email, password } = req.body;
+      if (!passwordRequirementsOK(password)){
+        return res.status(400).json({ data: "La contraseña debe tener al menos 6 caracteres, una mayúscula y una minúscula." });
+      }
       const hash = await hashPassword(password);
       const result = await crearUser(req, res, { email, hash });
   
@@ -40,7 +43,18 @@ const loginUsuario = async (req, res)=>{
     }})
 }
 
+const updateUserWithAvatar = async (req, res, next)=>{
+  const {path} = req.file
+  const {id} = req.user
+  await updateAvatar(id, path)
+  res.status(201).json({data: {
+      mensaje:'Archivo subido a la carpeta "avatar"',
+      ruta: path
+  }})
+}
+
 module.exports = {
   registrarUsuario,
-  loginUsuario
+  loginUsuario,
+  updateUserWithAvatar
 };

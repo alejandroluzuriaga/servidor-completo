@@ -20,13 +20,6 @@ const userSchema = new mongoose.Schema(
         type: String,
         required: true,
         trim: true,
-        validate: {
-          validator: function (value) {
-            return /^(?=.*?[a-z])(?=.*?[A-Z]).{6,}$/.test(value);
-          },
-          message:
-            'La contraseña debe tener al menos 6 caracteres, al menos una mayúscula y una minúscula.'
-        }
       },
       avatar: { type: String, required: false, trim: true }
     },

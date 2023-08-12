@@ -1,4 +1,5 @@
-require("./db.js")
+require("dotenv").config();
+const db = require("./db.js");
 const seed = require("../api/seed/seed.js");
 const { Libro, Autor, User } = require("../api/models/models.js");
 
@@ -56,11 +57,11 @@ const limpiarCampos = async () => {
 const updatedSeed = relationalSeed(seed);
 
 const main = async () => {
-  if (Libro.collection && Autor.collection){
-    await Libro.collection.drop();
-    await Autor.collection.drop();
-    await User.collection.drop();
-  }
+  // if (Libro.collection && Autor.collection){
+  //   await Libro.collection.drop();
+  //   await Autor.collection.drop();
+  //   await User.collection.drop();
+  // }
   const autores = await Autor.insertMany(updatedSeed.autores)
   const libros = await Libro.insertMany(updatedSeed.libros);
   await relacionarAutoresconLibros(autores, libros)

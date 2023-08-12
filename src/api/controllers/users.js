@@ -73,45 +73,6 @@ const crearUser = async (req, res, payload) => {
   }
 };
 
-// const actualizarAutor = async (req, res) => {
-//   const { id } = req.params;
-//   const { nombre } = req.body;
-
-//   try {
-
-//     const camposOK = validarCamposPermitidos(req.body)
-//     if (!camposOK){
-//       return res.status(400).json({error: "Campos incorrectos. Solo puedes modificar 'nombre' del autor"})
-//     }
-//     const actualizacion = {};
-//     if (nombre !== null) actualizacion.nombre = nombre;
-
-//     if (Object.keys(actualizacion).length === 0) {
-//       return res
-//         .status(400)
-//         .json({ error: "No se proporcionaron campos para actualizar" });
-//     }
-
-//     const autorActualizado = await Autor.findByIdAndUpdate(id, actualizacion, {new: true,});
-
-//     if (!autorActualizado) {
-//       return res.status(404).json({ error: "Libro no encontrado" });
-//     }
-
-//     await Promise.all( //Actualizar el nombre del autor en los libros que ha escrito
-//       autorActualizado.librosEscritos.map(async (objectID) =>{
-//         console.log(objectID.toString())
-//         await Libro.findByIdAndUpdate(objectID.toString(), {nombreAutor: autorActualizado.nombre})
-//       })
-//     )
-
-//     res.status(200).json({ data: autorActualizado });
-//   } catch (err) {
-//     console.log("API error:", err);
-//     res.status(500).json({ data: "Unexpected server error" });
-//   }
-// };
-
 const eliminarUser = async (req, res) => {
   const { id } = req.params;
   try {
@@ -129,10 +90,15 @@ const eliminarUser = async (req, res) => {
   }
 };
 
+const updateAvatar = async (id, path) =>{
+  await User.updateOne({_id: id}, {avatar: path})
+}
+
 module.exports = {
   getTodosLosUsers,
   getUserPorID,
   crearUser,
   eliminarUser,
-  getUserPorEmail
+  getUserPorEmail,
+  updateAvatar
 };
