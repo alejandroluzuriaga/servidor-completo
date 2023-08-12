@@ -1,10 +1,12 @@
+# https://full-server-alejandroluzuriaga-render.onrender.com
+
 # Libros
 | Solicitud HTTP | Endpoint         | Descripción                 |
 | -------------- | ---------------- | --------------------------- |
 | GET            | /libros          | Todos los libros           |
 | GET            | /libros/:id       | Libro por ID               |
 | GET            | /libros/populate/:id | Libro por ID y autor    |
-| POST           | /libro           | Crear libro(*)             |
+| POST           | /libros          | Crear libro(*)             |
 | PUT            | /libro/:id       | Actualizar libro por ID(*)    |
 | DELETE         | /libro/:id       | Borrar libro por ID(*)   |
 
