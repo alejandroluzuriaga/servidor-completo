@@ -1,7 +1,3 @@
-# PASOS
-    - Lanzar el comando 'npm run populate' para poblar la base de datos.
-    - Lanzar el comando 'npm run start'.
-
 # Libros
 | Solicitud HTTP | Endpoint         | Descripción                 |
 | -------------- | ---------------- | --------------------------- |
