@@ -1,5 +1,7 @@
 # https://full-server-alejandroluzuriaga-render.onrender.com
 
+Para obtener un token válido, registra un usuario con 'email' y 'password' (donde la contraseña tenga al menos 6 caracteres, mínimo una mayúscula y una minúscula) y después, inicia sesión para recibir el token. Los tokens válidos se muestran en la respuesta a la solicitud al iniciar sesión.
+
 # Libros
 | Solicitud HTTP | Endpoint         | Descripción                 |
 | -------------- | ---------------- | --------------------------- |
@@ -37,8 +39,6 @@
 
 
 (*): Es necesaria autenticación mediante un token válido en el campo 'Authorization/Auth' - 'Bearer'.
-
-Para obtener un token válido, registra un usuario con 'email' y 'password' donde la contraseña tenga al menos 6 caracteres y mínimo una mayúscula y una minúscula. Los tokens válidos se muestran en la respuesta a la solicitud al iniciar sesión.
 
 En el caso de 'Actualizar usuario con avatar' el usuario que se actualizará con un nuevo campo 'avatar' (URL de la imagen en Cloudinary) será el que haya generado el token válido necesario para consumir el endpoint.
 
