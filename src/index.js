@@ -21,6 +21,7 @@ const limiter = rateLimit({
   max: 50, //50 peticiones
   standardHeaders: false,
   legacyHeaders: false, 
+  trustProxy: true,
 })
 
 app.use(limiter)
